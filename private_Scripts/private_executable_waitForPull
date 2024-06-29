@@ -1,0 +1,18 @@
+#!/bin/bash
+
+BRANCH=${1:-main}
+
+PREV_STATE=$(git rev-parse HEAD)
+
+while true; do
+    git pull origin $BRANCH
+
+    CUR_STATE=$(git rev-parse HEAD)
+
+    if [ "$PREV_STATE" != "$CUR_STATE" ]; then
+        say "New changes pulled from $BRANCH"
+        exit 0
+    else
+        sleep 3
+    fi
+done
