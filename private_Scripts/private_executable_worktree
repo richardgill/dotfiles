@@ -1,0 +1,35 @@
+#!/bin/bash
+if [ "$#" -eq 0 ]; then
+  echo "Usage: source $0 path-to-directory"
+  return 1  # Use 'return' instead of 'exit' when the script is sourced
+fi
+
+SOURCE=$(realpath .)
+TARGET="$SOURCE/../$1"
+
+git worktree add $TARGET
+
+cd $TARGET
+
+echo "copying gitignored files"
+
+# Navigate to the original repo root
+(cd $SOURCE && git ls-files --others --ignored --exclude-standard) | while read filename; do
+  # Skip directories
+  if [ -d "$filename" ] || [[ "$filename" == *node_modules* ]]; then
+    continue
+  fi
+
+  echo "copying: $filename"
+
+  # Create the directory structure in the new worktree if it doesn't exist
+  mkdir -p "$TARGET/$(dirname "$filename")"
+  # Copy the ignored file using copy-on-write
+  cp -c "$SOURCE/$filename" "$TARGET/$filename"
+done
+
+
+
+pnpm i
+
+

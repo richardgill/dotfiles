@@ -1,0 +1,10 @@
+# Ripgrep's config is used by telescope.nvim
+
+# Only case sensitive on the first capital letter 
+--smart-case 
+
+# show hidden files
+--hidden
+
+# global .rgignore
+--ignore-file=$XDG_CONFIG_HOME/ripgrep/.rgignore
