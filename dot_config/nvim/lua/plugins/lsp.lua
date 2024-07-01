@@ -12,6 +12,7 @@ return {
     -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
     { 'folke/neodev.nvim', opts = {} },
+    { 'ray-x/lsp_signature.nvim', opts = {} },
   },
   config = function()
     --    This function gets run when an LSP attaches to a particular buffer.
@@ -91,20 +92,28 @@ return {
             end,
           })
         end
-
-        -- The following autocommand is used to enable inlay hints in your
-        -- code, if the language server you are using supports them
-        --
-        -- This may be unwanted, since they displace some of your code
-        if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-          map('<leader>th', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-          end, '[T]oggle Inlay [H]ints')
-        end
         if client then
+          -- The following autocommand is used to enable inlay hints in your
+          -- code, if the language server you are using supports them
+          --
+          -- This may be unwanted, since they displace some of your code
+          if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+            map('<leader>th', function()
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            end, '[T]oggle Inlay [H]ints')
+          end
           if client.name == 'typescript-tools' then
             map('<leader>oi', '<cmd>:TSToolsOrganizeImport<cr>', '[O]rganize [i]mports')
             map('<leader>rf', '<cmd>:TSToolsRenameFile<cr>:wa', '[R]ename [F]ile')
+          end
+
+          if not vim.tbl_contains({ 'dont-want-lsp' }, client.name) then -- blacklist lsp
+            require('lsp_signature').on_attach({
+              bind = true, -- This is mandatory, otherwise border config won't get registered.
+              handler_opts = {
+                border = 'rounded',
+              },
+            }, event.buf)
           end
         end
       end,

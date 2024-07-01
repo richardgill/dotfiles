@@ -6,8 +6,6 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- plugins deleted
--- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 -- To check the current status of your plugins, run :Lazy
 require('lazy').setup({
   import = 'plugins',
