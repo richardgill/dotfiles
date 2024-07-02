@@ -1,8 +1,8 @@
 -- LEARNING: turn off mouse whilst
 vim.opt.mouse = ''
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
-vim.opt.mousescroll = 'ver:0,hor:0'
+-- vim.opt.mouse = 'a'
+-- vim.opt.mousescroll = 'ver:0,hor:0'
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
