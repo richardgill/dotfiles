@@ -59,9 +59,9 @@ source "$HOME/.rye/env"
 
 # Git aliases
 alias s="git status"
-alias d="git diff"
+# git diff HEAD shows staged an unstaged changes
+alias d="git diff HEAD"
 alias hard="git reset --hard"
-alias add="git add ."
 alias fetch="git fetch origin"
 alias co="git checkout"
 alias track="gh pr checkout"
@@ -72,6 +72,14 @@ alias soft="git reset --soft HEAD~1"
 alias blame="git blame -w -C -C -C"
 alias ghdiff='open "https://github.$(git config remote.origin.url | cut -f2 -d.)/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"'
 alias bbdiff='open "$(git config remote.origin.url)/pull-requests/new#diff"'
+
+add() {
+  if [ $# -eq 0 ]; then
+    git add .
+  else
+    git add "$@"
+  fi
+}
 
 ci() {
   if [ "$#" -eq 0 ]; then
@@ -120,13 +128,72 @@ alias v="nvim"
 alias zed="open -a /Applications/Zed.app -n"
 alias pnx="pnpm exec nx"
 alias lso="/bin/ls"
-alias ls="eza"
+alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias cato="/bin/cat"
 alias cat="bat"
 alias as="open -a /Applications/Android\ Studio.app"
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 alias sed="gsed"
 alias n='nnn -xRPaEH'
+
+# -- Use fd instead of fzf --
+
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none
+  --color=bg+:#283457 \
+  --color=bg:#16161e \
+  --color=border:#27a1b9 \
+  --color=fg:#c0caf5 \
+  --color=gutter:#16161e \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#27a1b9 \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c \
+"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo $'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  esac
+}
+
+# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
 
 export NNN_USE_EDITOR=1
 export NNN_PLUG="f:fzplug"
