@@ -7,4 +7,5 @@
 --hidden
 
 # global .rgignore
---ignore-file=$XDG_CONFIG_HOME/ripgrep/.rgignore
+--ignore-file=/Users/rich/.config/ripgrep/.rgignore
+
