@@ -18,7 +18,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Win [Open Spotlight]",
+                        "description": "<C-Insert> (Terminal Emulators)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -27,14 +27,2838 @@
                                             {
                                                 "product_id": 2040,
                                                 "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
                                             }
                                         ],
                                         "type": "device_if"
                                     },
-                                    []
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
                                 ],
                                 "from": {
-                                    "key_code": "left_command"
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-Insert> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<S-Insert> (Terminal Emulators)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<S-Insert> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "insert",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<Home> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-Home> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<S-Home> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-S-Home> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<End> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-End> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<S-End> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-S-End> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-Left Arrow> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-S-Left Arrow> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "option",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-Right Arrow> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-S-Right Arrow> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "option",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-Backspace> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": [
+                                            "option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-Delete> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "delete_forward",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_forward",
+                                        "modifiers": [
+                                            "option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-Enter> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "return_or_enter",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-S-Enter> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "return_or_enter",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-a> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "a",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-b> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-c> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-S-c> (Terminal Emulators)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-f> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-h> (Web Browsers)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.nightly$",
+                                            "^com\\.brave\\.Browser$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "y",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-i> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "i",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-l> (Web Browsers)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.nightly$",
+                                            "^com\\.brave\\.Browser$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "l",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-n> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "n",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-o> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "o",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-p> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "p",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-r> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "r",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-s> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "s",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-t> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "t",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-u> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "u",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-v> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-S-v> (Terminal Emulators)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-w> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-x> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "x",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-y> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "y",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-z> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "z",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-/> (Terminal Emulators)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "slash",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "slash",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-Space> (Standard)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$",
+                                            "^org\\.alacritty$",
+                                            "^co\\.zeit\\.hyper$",
+                                            "^com\\.googlecode\\.iterm2$",
+                                            "^com\\.apple\\.Terminal$",
+                                            "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -49,12 +2873,51 @@
                         ]
                     },
                     {
+                        "description": "<Alt-F4> (Terminal Emulators)",
                         "manipulators": [
                             {
-                                "description": "Change caps_lock to command+control+option+shift.",
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                                            "^com\\.parallels\\.desktop\\.console$",
+                                            "^org\\.vmware\\.fusion$",
+                                            "^com\\.utmapp\\.UTM$",
+                                            "^org\\.gnu\\.emacs$",
+                                            "^org\\.gnu\\.Emacs$",
+                                            "^com\\.jetbrains",
+                                            "^com\\.microsoft\\.VSCode$",
+                                            "^com\\.vscodium$",
+                                            "^com\\.sublimetext\\.3$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.citrix\\.XenAppViewer$",
+                                            "^com\\.microsoft\\.rdc\\.macos$"
+                                        ],
+                                        "file_paths": [
+                                            "Chrome Remote Desktop\\.app"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
                                 "from": {
-                                    "key_code": "caps_lock",
+                                    "key_code": "f4",
                                     "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
                                         "optional": [
                                             "any"
                                         ]
@@ -62,12 +2925,390 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_shift",
+                                        "key_code": "q",
                                         "modifiers": [
-                                            "left_command",
-                                            "left_control",
-                                            "left_option"
+                                            "command"
                                         ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<C-F4> (Web Browsers)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.google\\.chrome$",
+                                            "^com\\.google\\.Chrome$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.nightly$",
+                                            "^com\\.brave\\.Browser$",
+                                            "^com\\.apple\\.Safari$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f4",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "L (Win) [Lock Screen]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": [
+                                            "control",
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "£ -> # on gb layout",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "3",
+                                        "modifiers": [
+                                            "option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "# -> £ on gb layout",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "3",
+                                        "modifiers": [
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<Command-Shift-F4> (Custom)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f4",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "3",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<Command-Shift-F5> (Custom)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f5",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "4",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<Command-Shift-F6> (Custom)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f6",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "5",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "<Command-Shift-F11> (Custom)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 2040,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 10203,
+                                                "vendor_id": 5824
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f11",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command",
+                                            "shift"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "0",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Ctrl+Left Click opens a new tab",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    },
+                                    "pointing_button": "button1"
+                                },
+                                "to": [
+                                    {
+                                        "modifiers": [
+                                            "command"
+                                        ],
+                                        "pointing_button": "button1"
                                     }
                                 ],
                                 "type": "basic"
@@ -176,7 +3417,7 @@
                         "product_id": 153,
                         "vendor_id": 5426
                     },
-                    "ignore": true,
+                    "ignore": false,
                     "manipulate_caps_lock_led": false,
                     "mouse_flip_horizontal_wheel": false,
                     "mouse_flip_vertical_wheel": false,
@@ -197,6 +3438,171 @@
                         "is_pointing_device": false,
                         "product_id": 2040,
                         "vendor_id": 1118
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "mouse_flip_horizontal_wheel": false,
+                    "mouse_flip_vertical_wheel": false,
+                    "mouse_flip_x": false,
+                    "mouse_flip_y": false,
+                    "mouse_swap_wheels": false,
+                    "mouse_swap_xy": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [
+                        {
+                            "from": {
+                                "key_code": "f1"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f1"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f2"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f2"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f3"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f3"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f4"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f4"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f5"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f5"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f6"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f6"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f7"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f7"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f8"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f8"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f9"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f9"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f10"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f10"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f11"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f11"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "f12"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f12"
+                                }
+                            ]
+                        }
+                    ],
+                    "game_pad_swap_sticks": false,
+                    "identifiers": {
+                        "is_game_pad": false,
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 10203,
+                        "vendor_id": 5824
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "mouse_flip_horizontal_wheel": false,
+                    "mouse_flip_vertical_wheel": false,
+                    "mouse_flip_x": false,
+                    "mouse_flip_y": false,
+                    "mouse_swap_wheels": false,
+                    "mouse_swap_xy": false,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "game_pad_swap_sticks": false,
+                    "identifiers": {
+                        "is_game_pad": false,
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 671,
+                        "vendor_id": 76
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
