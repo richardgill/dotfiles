@@ -38,6 +38,9 @@ if [ -n "$TMUX" ]; then
   bindkey  "^[OH"   beginning-of-line
   bindkey  "^[OF"   end-of-line
   bindkey  "^[[3~"  delete-char
+  # Ctrl+Left and Ctrl+Right for moving word-by-word
+  bindkey "^[[1;5D" backward-word   # Ctrl+Left
+  bindkey "^[[1;5C" forward-word    # Ctrl+Right
 fi
 
 # alt + left and right in /paths/like/this

@@ -51,7 +51,7 @@ return {
 
         -- Rename the variable under your cursor.
         --  Most Language Servers support renaming across files, etc.
-        map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+        map('<leader>crn', vim.lsp.buf.rename, '[C]ode [R]e[n]ame')
 
         -- Execute a code action, usually your cursor needs to be on top of an error
         -- or a suggestion from your LSP for this to activate.
@@ -104,7 +104,7 @@ return {
           end
           if client.name == 'typescript-tools' then
             map('<leader>oi', '<cmd>:TSToolsOrganizeImport<cr>', '[O]rganize [i]mports')
-            map('<leader>rf', '<cmd>:TSToolsRenameFile<cr>:wa', '[R]ename [F]ile')
+            map('<leader>crf', '<cmd>:TSToolsRenameFile<cr>:wa', '[C]ode [R]ename [F]ile')
           end
 
           if not vim.tbl_contains({ 'dont-want-lsp' }, client.name) then -- blacklist lsp

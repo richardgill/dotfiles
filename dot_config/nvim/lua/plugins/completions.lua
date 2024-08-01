@@ -52,6 +52,7 @@ return {
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
         -- Manually trigger a completion
+        -- For this to work on MacOS disable the select previous input source keybinding shortcut in Mac settings
         ['<C-Space>'] = cmp.mapping.complete {},
 
         -- Think of <c-l> as moving to the right of your snippet expansion.

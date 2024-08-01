@@ -1,8 +1,8 @@
 -- LEARNING: turn off mouse whilst
-vim.opt.mouse = ''
+-- vim.opt.mouse = ''
 -- Enable mouse mode, can be useful for resizing splits for example!
--- vim.opt.mouse = 'a'
--- vim.opt.mousescroll = 'ver:0,hor:0'
+vim.opt.mouse = 'a'
+vim.opt.mousescroll = 'ver:0,hor:0'
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -82,3 +82,21 @@ vim.g.loaded_netrw = 1
 
 -- Highlight search results
 vim.opt.hlsearch = true
+
+-- folds are defaulted to 'indent' mode. Treesitter will take over if loaded for filetype
+vim.opt.foldmethod = 'indent'
+
+-- Adds an extra column on the left for seeing fold information
+vim.opt.foldcolumn = '0'
+
+-- Unfolded by default
+vim.opt.foldenable = true
+
+-- Which level is folded when a buffer is opened (very high numbers, mean not folded by default)
+vim.opt.foldlevelstart = 99
+
+-- Enable syntax highlighting on the first line
+vim.opt.foldtext = ''
+
+-- Max level to allow folds to.
+vim.opt.foldnestmax = 4
