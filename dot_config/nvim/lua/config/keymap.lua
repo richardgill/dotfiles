@@ -32,10 +32,16 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-Down>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-Up>', '<C-u>zz')
-
+vim.keymap.set('v', '<C-d>', '<C-d>zz')
+vim.keymap.set('v', '<C-Down>', '<C-d>zz')
+vim.keymap.set('v', '<C-u>', '<C-u>zz')
+vim.keymap.set('v', '<C-Up>', '<C-u>zz')
 -- when searching n: go to next result; zz: to center the result/cursor; zv expand all folds
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
+
+-- Select all but keep cursor position
+vim.keymap.set('n', '<leader>a', 'ggVG', { noremap = true, silent = true })
 
 -- Indent and keep selection
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })

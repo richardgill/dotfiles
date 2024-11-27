@@ -22,11 +22,14 @@ return {
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    {
+      'mollerhoj/telescope-recent-files.nvim',
+    },
   },
   config = function()
     require('telescope').setup {
       defaults = {
-
+        path_display = { 'truncate' },
         layout_strategy = 'vertical',
       },
       extensions = {
@@ -39,6 +42,7 @@ return {
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'recent-files')
 
     local builtin = require 'telescope.builtin'
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
@@ -56,7 +60,10 @@ return {
     end, { desc = '[F]ind by [G]rep' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
     vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
-    vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
+    local recentFiles = function()
+      require('telescope').extensions['recent-files'].recent_files {}
+    end
+    vim.keymap.set('n', '<leader>f.', recentFiles, { desc = '[F]ind Recent Files ("." for repeat)' })
 
     local bufferFunc = function()
       builtin.buffers {
@@ -94,7 +101,7 @@ return {
         if IS_OPENED_TO_DIR then
           -- close the open buffer
           vim.cmd ':bd 1'
-          require('telescope.builtin').find_files()
+          recentFiles()
         end
       end,
       group = ts_group,

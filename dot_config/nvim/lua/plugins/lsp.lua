@@ -64,6 +64,7 @@ return {
         -- For example, in C this would take you to the header.
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+        map('<leader>lr', '<cmd>:LspRestart<cr>', '[L]SP [R]estart')
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
         --    See `:help CursorHold` for information about when this is executed
@@ -102,9 +103,9 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, '[T]oggle Inlay [H]ints')
           end
-          if client.name == 'typescript-tools' then
-            map('<leader>oi', '<cmd>:TSToolsOrganizeImport<cr>', '[O]rganize [i]mports')
-            map('<leader>crf', '<cmd>:TSToolsRenameFile<cr>:wa', '[C]ode [R]ename [F]ile')
+          if client.name == 'vtsls' then
+            map('<leader>oi', '<cmd>:VtsExec remove_unused_imports<cr>', '[O]rganize [i]mports')
+            map('<leader>crf', '<cmd>:VtsExec rename_file<cr>:wa', '[C]ode [R]ename [F]ile')
           end
 
           if not vim.tbl_contains({ 'dont-want-lsp' }, client.name) then -- blacklist lsp
@@ -139,6 +140,9 @@ return {
       -- clangd = {},
       -- gopls = {},
       -- pyright = {},
+      ruff = {},
+      ['jedi-language-server'] = {},
+      ['kotlin_language_server'] = {},
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --

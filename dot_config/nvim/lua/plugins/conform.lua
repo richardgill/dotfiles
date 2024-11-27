@@ -21,7 +21,7 @@ return {
       },
     }
 
-    vim.keymap.set('', 'ff', function()
+    vim.keymap.set('', '<leader>cf', function()
       require('conform').format { async = true, lsp_fallback = true }
     end, { desc = '[F]ormat buffer' })
 

@@ -4,6 +4,16 @@ if [ "$#" -eq 0 ]; then
   return 1  # Use 'return' instead of 'exit' when the script is sourced
 fi
 
+# Check if the input includes a branch in the format 'remote/branch'
+if [[ "$1" =~ (.+)/(.+) ]]; then
+  REMOTE="${BASH_REMATCH[1]}"
+  BRANCH="${BASH_REMATCH[2]}"
+  echo "Fetching from $REMOTE branch $BRANCH"
+  git fetch "$REMOTE" "$BRANCH"
+  # Update the first argument ($1) to just the branch name for consistency in later use
+  set -- "$BRANCH" "${@:2}"
+fi
+
 SOURCE=$(realpath .)
 TARGET="$SOURCE/../$1"
 
