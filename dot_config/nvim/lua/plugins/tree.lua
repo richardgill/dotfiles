@@ -13,6 +13,11 @@ return {
           },
         },
       },
+      git = {
+        enable = true,
+        ignore = false,
+        timeout = 400,
+      },
       view = {
         float = {
           enable = true,
@@ -63,6 +68,7 @@ return {
         -- custom mappings
         vim.keymap.set('n', '?', api.tree.toggle_help, opts 'Help')
         vim.keymap.set('n', '<space>', edit_or_open, opts 'Edit or open')
+        vim.keymap.set('n', '<esc>', api.tree.close, opts 'Close')
       end,
       renderer = {
         add_trailing = false,

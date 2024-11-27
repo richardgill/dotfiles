@@ -1,8 +1,5 @@
-import = ["~/.config/alacritty/themes/tokyo-night.toml"]
 
-live_config_reload = true
-
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["-l", "-c", "source ~/.zshrc; tmux new; zsh"]
 
@@ -113,3 +110,10 @@ bindings = [
   #   "#{pane_current_path}",
   # ] } },
 ]
+
+[general]
+
+live_config_reload = true
+import = ["~/.config/alacritty/themes/tokyo-night.toml"]
+
+[terminal]
