@@ -3,6 +3,7 @@ return {
   'stevearc/conform.nvim',
   lazy = false,
   config = function()
+    local prettier = { 'prettierd', 'prettier', stop_after_first = true }
     require('conform').setup {
       notify_on_error = false,
       format_on_save = function()
@@ -13,11 +14,11 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        typescript = { 'prettier' },
-        typescriptreact = { 'prettier' },
-        javascriptreact = { 'prettier' },
+        typescript = prettier,
+        typescriptreact = prettier,
+        javascriptreact = prettier,
         -- fallback to prettier
-        ['_'] = { 'prettier' },
+        ['_'] = prettier,
       },
     }
 
