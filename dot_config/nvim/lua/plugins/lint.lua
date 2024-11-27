@@ -5,9 +5,9 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
-        typescript = { 'eslint' },
-        typescriptreact = { 'eslint' },
-        javascriptreact = { 'eslint' },
+        typescript = { 'eslint_d' },
+        typescriptreact = { 'eslint_d' },
+        javascriptreact = { 'eslint_d' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
@@ -58,7 +58,10 @@ return {
       local function lint()
         local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
         local client = get_clients({ bufnr = 0 })[1] or {}
-        require('lint').try_lint(nil, { cwd = client.root_dir })
+        require('lint').try_lint(nil, {
+          -- which folder to lint from
+          -- cwd = client.root_dir
+        })
       end
 
       -- Debounced version of your linting function
