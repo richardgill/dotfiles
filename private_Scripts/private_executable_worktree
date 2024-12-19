@@ -20,6 +20,16 @@ TARGET="$SOURCE/../$1"
 git worktree add $TARGET
 
 cd $TARGET
+if [ -n "$TMUX" ]; then
+  tmux split-window -v -c '#{pane_current_path}'
+
+  tmux new-window -a -c "#{pane_current_path}"
+
+  SOCKET_FILE="/tmp/nvim-socket-$(uuidgen)"
+
+  tmux send-keys "v . --listen $SOCKET_FILE" Enter
+fi
+
 
 echo "copying gitignored files"
 
@@ -38,8 +48,8 @@ echo "copying gitignored files"
   cp -c "$SOURCE/$filename" "$TARGET/$filename"
 done
 
-
-
 pnpm i
 
-
+if [ -n "$TMUX" ]; then
+  nvim --server "$SOCKET_FILE" --remote-send ":LspRestart<CR>"
+fi

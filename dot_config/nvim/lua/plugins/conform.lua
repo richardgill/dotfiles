@@ -8,7 +8,7 @@ return {
       notify_on_error = false,
       format_on_save = function()
         return {
-          timeout_ms = 500,
+          timeout_ms = 700,
           lsp_fallback = true,
         }
       end,
