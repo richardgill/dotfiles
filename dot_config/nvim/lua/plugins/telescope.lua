@@ -72,7 +72,6 @@ return {
       }
     end
     vim.keymap.set('n', '<leader>fb', bufferFunc, { desc = '[F]ind [B]uffers' })
-    vim.keymap.set('n', '<C-Tab>', bufferFunc)
 
     vim.keymap.set('n', '<leader>/', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.

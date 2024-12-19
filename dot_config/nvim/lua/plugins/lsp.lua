@@ -5,7 +5,7 @@ return {
     { 'williamboman/mason.nvim', config = true }, -- Must be loaded before dependants
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
-
+    'saghen/blink.cmp',
     -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
 
@@ -64,7 +64,10 @@ return {
         -- For example, in C this would take you to the header.
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-        map('<leader>lr', '<cmd>:LspRestart<cr>', '[L]SP [R]estart')
+        map('<leader>lr', function()
+          vim.cmd 'LspRestart'
+          vim.cmd 'VtsExec restart_tsserver'
+        end, '[L]SP [R]estart')
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
         --    See `:help CursorHold` for information about when this is executed
@@ -105,7 +108,7 @@ return {
           end
           if client.name == 'vtsls' then
             map('<leader>oi', '<cmd>:VtsExec remove_unused_imports<cr>', '[O]rganize [i]mports')
-            map('<leader>crf', '<cmd>:VtsExec rename_file<cr>:wa', '[C]ode [R]ename [F]ile')
+            map('<leader>crf', '<cmd>:VtsExec rename_file<cr>', '[C]ode [R]ename [F]ile')
           end
 
           if not vim.tbl_contains({ 'dont-want-lsp' }, client.name) then -- blacklist lsp
@@ -125,7 +128,7 @@ return {
     --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities(capabilities))
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.

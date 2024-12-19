@@ -40,8 +40,8 @@ vim.keymap.set('v', '<C-Up>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
--- Select all but keep cursor position
-vim.keymap.set('n', '<leader>a', 'ggVG', { noremap = true, silent = true })
+-- Select all
+vim.keymap.set('n', '<C-a>', 'ggVG', { noremap = true, silent = true })
 
 -- Indent and keep selection
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
