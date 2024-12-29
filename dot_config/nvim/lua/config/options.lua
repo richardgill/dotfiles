@@ -96,3 +96,12 @@ vim.opt.foldtext = ''
 
 -- Max level to allow folds to.
 vim.opt.foldnestmax = 4
+
+vim.o.updatetime = 250
+vim.diagnostic.config {
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+}

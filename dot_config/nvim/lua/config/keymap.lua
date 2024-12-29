@@ -58,3 +58,15 @@ vim.keymap.set('n', '<leader>do', '<cmd>:DiffviewOpen origin/main...HEAD<cr>', {
 
 -- stop ctrl-z from suspending
 vim.api.nvim_set_keymap('n', '<c-z>', '<nop>', { noremap = true, silent = true })
+
+-- Horizontal split
+vim.keymap.set('n', '<leader>wh', ':vsplit<CR>', { noremap = true, silent = true, desc = '[Window] split horizontal' })
+-- Vertical split
+vim.keymap.set('n', '<leader>wv', ':split<CR>', { noremap = true, silent = true, desc = '[Window] split vertical' })
+
+vim.keymap.set('n', '<leader>lr', function()
+  vim.cmd 'LspRestart'
+  vim.cmd 'VtsExec restart_tsserver'
+  -- For linting
+  vim.diagnostic.reset(nil, 0)
+end, { desc = '[L]SP [R]estart' })
