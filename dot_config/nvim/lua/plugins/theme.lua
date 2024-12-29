@@ -9,16 +9,14 @@ return {
   end,
   config = function()
     require('tokyonight').setup {
+      -- Debugging:
+      -- `:InspectTree` or `:Inspect` with your cursor over an element
       on_colors = function(colors)
         local util = require 'tokyonight.util'
-        ---@diagnostic disable-next-line: inject-field
         colors.comment = util.lighten(colors.comment, 0.7)
-        ---@diagnostic disable-next-line: inject-field
         colors.bg_visual = util.lighten(colors.bg_visual, 0.8)
-        ---@diagnostic disable-next-line: inject-field
         colors.fg_gutter = util.lighten(colors.fg_gutter, 0.7)
       end,
-      -- Find highlights by running `:Inspect` with your cursor over an element
       on_highlights = function(hl, colors)
         local util = require 'tokyonight.util'
         -- builtin variables like console
@@ -35,6 +33,19 @@ return {
         hl['MultiCursor'] = hl['IncSearch']
         hl['MultiCursorMain'] = hl['IncSearch']
       end,
+      plugins = {
+        -- enable all plugins when not using lazy.nvim
+        -- set to false to manually enable/disable plugins
+        all = package.loaded.lazy == nil,
+        -- uses your plugin manager to automatically enable needed plugins
+        -- currently only lazy.nvim is supported
+        auto = true,
+        -- add any plugins here that you want to enable
+        -- for all possible plugins, see:
+        --   * https://github.com/folke/tokyonight.nvim/tree/main/lua/tokyonight/groups
+
+        copilot = false, -- suggestions were too dark
+      },
     }
   end,
 }

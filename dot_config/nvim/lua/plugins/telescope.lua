@@ -27,6 +27,7 @@ return {
     },
   },
   config = function()
+    local open_with_trouble = require('trouble.sources.telescope').open
     require('telescope').setup {
       defaults = {
         path_display = { 'truncate' },

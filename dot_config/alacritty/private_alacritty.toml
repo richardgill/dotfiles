@@ -3,7 +3,6 @@
 program = "/bin/zsh"
 args = ["-l", "-c", "source ~/.zshrc; tmux new; zsh"]
 
-
 [bell]
 animation = "EaseOutExpo"
 duration = 0
@@ -79,18 +78,17 @@ bindings = [
 
   { key = "Back", mods = "Alt", chars = "\u001b\u007f" },   # Delete word backwards
   { key = "Back", mods = "Control", chars = "\u001b\u007f" },   # Delete word backwards windows
-  
 
-  { key = "Delete", mods = "Command", chars = "\u000B" },   # Delete to beginning of line (fires ^U which is bound in .zshrc)
-  
-  { key = "Delete", mods = "Alt", chars = "\u001b\u0064" }, # Delete word
-  { key = "Delete", mods = "Control", chars = "\u001b\u0064" }, # Delete word
+ #  { key = "Delete", mods = "Command", chars = "\u000B" },   # Delete to beginning of line (fires ^U which is bound in .zshrc)
+ # 
+ #  { key = "Delete", mods = "Alt", chars = "\u001b\u0064" }, # Delete word
+ #  { key = "Delete", mods = "Control", chars = "\u001b\u0064" }, # Delete word
 
-
+  # Prevent accidentally closing things
   { key = "W", mods = "Command", action = "None" },
   { key = "Q", mods = "Command", action = "None" },
   # fixes issue where hash doesn't work on GB keyboards https://github.com/alacritty/alacritty/issues/1073#issuecomment-1296239926
-  { key = "Key3", mods = "Alt", chars = "#" },
+  # { key = "Key3", mods = "Alt", chars = "#" },
 
 
   # \x1b[ is a CSI (control sequence introducer), meaning ESC+[;
@@ -98,17 +96,8 @@ bindings = [
   # 5 is the sum of bits for the ctrl and shift modifiers (1 is shift, 2 is alt, 4 is ctrl); (this seems be off by 1?)
   # u stands for unicode.
 
-  { key = "Tab", mods = "Control", chars = "\u001b[9;5u" },       # Forward ctrl + tab
-  { key = "Tab", mods = "Control|Shift", chars = "\u001b[9;6u" }, # Forward ctrl + shift + tab
-
-  # { key = "W", mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = [
-  #   "kill-pane",
-  # ] } },
-  # { key = "D", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = [
-  #   "split-window",
-  #   "-c",
-  #   "#{pane_current_path}",
-  # ] } },
+  # { key = "Tab", mods = "Control", chars = "\u001b[9;5u" },       # Forward ctrl + tab
+  # { key = "Tab", mods = "Control|Shift", chars = "\u001b[9;6u" }, # Forward ctrl + shift + tab
 ]
 
 [general]
