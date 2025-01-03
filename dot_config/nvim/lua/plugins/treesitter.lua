@@ -28,10 +28,8 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "'",
-          node_incremental = "'",
-          scope_incremental = false,
-          node_decremental = '"',
+          node_incremental = 'v',
+          node_decremental = 'V',
         },
       },
       indent = {
