@@ -6,10 +6,11 @@ theme = tokyonight
 shell-integration-features = no-cursor
 cursor-style = block
 macos-option-as-alt = true
-fullscreen = true
-macos-titlebar-style = "transparent"
+title = ""
+macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 command = /bin/zsh -l -c "source ~/.zshrc; tmux new; zsh"
+window-padding-y = 10,0
 # should be default soon https://github.com/ghostty-org/ghostty/pull/3679
 keybind = cmd+backspace=text:\x15
 keybind = cmd+left=text:\x1bOH
