@@ -27,11 +27,15 @@ return {
     },
   },
   config = function()
-    local open_with_trouble = require('trouble.sources.telescope').open
+    local actions = require 'telescope.actions'
     require('telescope').setup {
       defaults = {
         path_display = { 'truncate' },
         layout_strategy = 'vertical',
+        mappings = {
+          i = { ['<C-Down>'] = actions.results_scrolling_down, ['<C-Up>'] = actions.results_scrolling_up },
+          n = { ['<C-Down>'] = actions.results_scrolling_down, ['<C-Up>'] = actions.results_scrolling_up },
+        },
       },
       extensions = {
         ['ui-select'] = {

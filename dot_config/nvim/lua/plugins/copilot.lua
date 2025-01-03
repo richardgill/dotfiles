@@ -29,7 +29,7 @@ return {
           accept = '<M-l>',
           accept_word = false,
           accept_line = false,
-          next = '<M-s>',
+          next = '<M-]>',
           prev = '<M-[>',
           dismiss = '<C-]>',
         },
@@ -48,5 +48,23 @@ return {
       copilot_node_command = 'node', -- Node.js version must be > 18.x
       server_opts_overrides = {},
     }
+    local timer
+    -- Turn on copilot auto suggest for 30 seconds
+    vim.keymap.set('i', '<M-s>', function()
+      vim.b.copilot_suggestion_auto_trigger = true
+      -- make a suggestion immediately
+      require('copilot.suggestion').next()
+      if timer then
+        timer:stop()
+        timer:close()
+      end
+      timer = vim.loop.new_timer()
+      timer:start(30000, 0, function()
+        vim.schedule(function()
+          vim.b.copilot_suggestion_auto_trigger = false
+          require('copilot.suggestion').dismiss()
+        end)
+      end)
+    end, { noremap = true, silent = true })
   end,
 }
