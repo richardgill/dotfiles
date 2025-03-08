@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Usage: ./push [remote] [branch or args...]
+
+remote="origin"
+
+if [ $# -ge 2 ]; then
+  remote="$1"
+  shift  # Remove the remote argument to process remaining args
+fi
+
+if [ $# -eq 0 ]; then
+  branch="$(git symbolic-ref --short HEAD)"
+else
+  branch="$@"
+fi
+
+git push "$remote" $branch

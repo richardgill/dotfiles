@@ -9,7 +9,11 @@ hs.hotkey.bind(hyper, "m", function()
 end)
 
 hs.hotkey.bind(hyper, "c", function()
-	hs.urlevent.openURL("https://chat.openai.com")
+	hs.urlevent.openURL("https://chatgpt.com/?model=gpt-4o")
+end)
+
+hs.hotkey.bind(hyper, "d", function()
+	hs.application.launchOrFocus("Discord")
 end)
 
 hs.hotkey.bind(hyper, "g", function()
@@ -28,9 +32,40 @@ hs.hotkey.bind(hyper, "s", function()
 	hs.application.launchOrFocus("Slack")
 end)
 
+hs.hotkey.bind(hyper, "w", function()
+	hs.application.launchOrFocus("WhatsApp")
+end)
+
 hs.hotkey.bind(hyper, "z", function()
 	hs.application.launchOrFocus("zoom.us")
 end)
+
+local menu = hs.menubar.new()
+
+function startFocus()
+	hs.task.new("/Users/rich/Scripts/coldTurkeyFocusStart", nil):start()
+	menu:setTitle("🔒")
+end
+
+function stopFocus()
+	hs.task.new("/Users/rich/Scripts/coldTurkeyFocusStop", nil):start()
+	menu:setTitle("🔓")
+end
+
+function stopLinkedIn()
+	hs.task.new("/Users/rich/Scripts/coldTurkeyLinkedInStop", nil):start()
+end
+
+menu:setMenu({
+	{ title = "Start Focus", fn = startFocus },
+	{ title = "Stop Focus", fn = stopFocus },
+	{
+		title = "Stop LinkedIn",
+		fn = stopLinkedIn,
+	},
+})
+
+menu:setTitle("🔓")
 
 local function shouldMaximizeWindow(win)
 	print("zzz", win, win:isStandard(), win:isMaximizable(), win:subrole())
@@ -58,7 +93,29 @@ hs.window.filter.default:subscribe(hs.window.filter.windowCreated, function(win)
 end)
 
 -- Watch for screen changes (e.g., connecting an external monitor)
-local screenWatcher = hs.screen.watcher.new(function()
+-- This maybe cannot be local because the watcher gets garbage collected
+screenWatcher = hs.screen.watcher.new(function()
 	hs.timer.doAfter(2, maximizeAllWindows) -- Add slight delay to handle screen updates
 end)
 screenWatcher:start()
+
+-- This cannot be local because the watcher gets garbage collected
+watcher = hs.caffeinate.watcher.new(function(event)
+	print(
+		"zzz Caffeinate event:",
+		event,
+		hs.caffeinate.watcher.screensaverDidStop,
+		hs.caffeinate.watcher.systemDidWake,
+		hs.caffeinate.watcher.screensDidUnlock
+	)
+	if
+		event == hs.caffeinate.watcher.screensaverDidStop
+		or event == hs.caffeinate.watcher.systemDidWake
+		or event == hs.caffeinate.watcher.screensDidUnlock
+	then
+		print("zzz unlocked")
+		hs.execute("/Users/rich/Scripts/coldTurkeyOn", true)
+	end
+end)
+
+watcher:start()
