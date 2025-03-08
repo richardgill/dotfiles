@@ -7,6 +7,12 @@ return {
     behaviour = {
       auto_suggestions = false,
     },
+    claude = {
+      endpoint = 'https://api.anthropic.com',
+      model = 'claude-3-7-sonnet-20250219',
+      temperature = 0,
+      max_tokens = 4096,
+    },
   },
   config = function(_, opts)
     require('avante').setup(opts)

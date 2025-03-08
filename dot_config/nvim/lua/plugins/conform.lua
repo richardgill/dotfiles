@@ -17,8 +17,10 @@ return {
         typescript = prettier,
         typescriptreact = prettier,
         javascriptreact = prettier,
+        mdx = {},
+        markdown = {},
         -- fallback to prettier
-        ['_'] = prettier,
+        -- ['_'] = prettier,
       },
     }
 
