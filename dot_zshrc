@@ -83,13 +83,16 @@ alias hard="git reset --hard"
 alias fetch="git fetch origin"
 alias co="git checkout"
 alias track="gh pr checkout"
-alias pr="gh pr create && gh pr view --web"
-alias wt="source ~/Scripts/worktree"
-alias log="git log --graph --decorate --pretty=oneline --abbrev-commit"
+alias wtb="source ~/Scripts/worktreeBranch"
+alias wto="source ~/Scripts/worktreeOpen"
+alias wtl="eza --sort=modified --reverse --time=modified --long --no-user --no-permissions"
+alias log="git log --graph --decorate --pretty=format:'%h - %an, %ar : %s'"
 alias soft="git reset --soft HEAD~1"
-alias blame="git blame -w -C -C -C"
-alias ghdiff='open "https://github.$(git config remote.origin.url | cut -f2 -d.)/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"'
+alias ghdiff='open "$(gh browse --no-browser)/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"'
 alias bbdiff='open "$(git config remote.origin.url)/pull-requests/new#diff"'
+alias pr="ghdiff"
+alias pull="source ~/Scripts/gitPull"
+alias push="source ~/Scripts/gitPush"
 
 add() {
   if [ $# -eq 0 ]; then
@@ -108,7 +111,6 @@ ci() {
     commit_message="$*"
     git commit -m "$commit_message"
   fi
-
 }
 
 branch() {
@@ -119,29 +121,13 @@ branches() {
   git branch -a
 }
 
-push() {
-  if [ $# -eq 0 ]; then
-    git push origin "$(git symbolic-ref --short HEAD)"
-  else
-    git push origin "$@"
-  fi
-}
-
-pull() {
-  if [ $# -eq 0 ]; then
-    git pull origin "$(git symbolic-ref --short HEAD)"
-  else
-    git pull origin "$@"
-  fi
-}
-
 resetTo() {
   target_branch="${1:-main}"
   git reset $(git merge-base origin/"$target_branch" $(git rev-parse --abbrev-ref origin/HEAD))
 }
 
 # app aliases
-alias c="code"
+alias c="cursor"
 alias v="nvim"
 alias zed="open -a /Applications/Zed.app -n"
 alias pnx="pnpm exec nx"
@@ -249,3 +235,5 @@ export PATH="$PATH:$HOME/.local/bin"
 
 export DVM_DIR="/Users/rich/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
+export PATH="/Users/rich/.config/maki/bin:$PATH"
+
