@@ -15,4 +15,4 @@ else
   branch="$@"
 fi
 
-git push "$remote" $branch
+git pull "$remote" $branch
