@@ -80,11 +80,12 @@ alias s="git status"
 # git diff HEAD shows staged an unstaged changes
 alias d="git diff HEAD"
 alias hard="git reset --hard"
-alias fetch="git fetch origin"
 alias co="git checkout"
 alias track="gh pr checkout"
 alias wtb="source ~/Scripts/worktreeBranch"
 alias wto="source ~/Scripts/worktreeOpen"
+alias wtd="source ~/Scripts/worktreePurge"
+alias wtc="source ~/Scripts/worktreeClose"
 alias wtl="eza --sort=modified --reverse --time=modified --long --no-user --no-permissions"
 alias log="git log --graph --decorate --pretty=format:'%h - %an, %ar : %s'"
 alias soft="git reset --soft HEAD~1"
@@ -93,6 +94,7 @@ alias bbdiff='open "$(git config remote.origin.url)/pull-requests/new#diff"'
 alias pr="ghdiff"
 alias pull="source ~/Scripts/gitPull"
 alias push="source ~/Scripts/gitPush"
+alias fetch="source ~/Scripts/gitFetch"
 
 add() {
   if [ $# -eq 0 ]; then
@@ -237,3 +239,4 @@ export DVM_DIR="/Users/rich/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
 export PATH="/Users/rich/.config/maki/bin:$PATH"
 
+eval "$(mise activate zsh)"

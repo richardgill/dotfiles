@@ -16,6 +16,7 @@ return {
         colors.comment = util.lighten(colors.comment, 0.7)
         colors.bg_visual = util.lighten(colors.bg_visual, 0.8)
         colors.fg_gutter = util.lighten(colors.fg_gutter, 0.7)
+        colors.git.add = '#9ece6a'
       end,
       on_highlights = function(hl, colors)
         local util = require 'tokyonight.util'
