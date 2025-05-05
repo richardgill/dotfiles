@@ -28,8 +28,29 @@ vim.opt.clipboard = 'unnamedplus'
 -- Enable break indent
 vim.opt.breakindent = true
 
+-- the folder defaults to: ~/.local/share/nvim/{undo,swp,backup}
+local data_path = vim.fn.stdpath 'data'
+local undo_dir = data_path .. '/undo'
+local backup_dir = data_path .. '/backup'
+local swap_dir = data_path .. '/swp'
+
+-- neovim doesn't automatically create these folder, and the features don't work if the folders aren't
+for _, dir in ipairs { undo_dir, backup_dir, swap_dir } do
+  if vim.fn.isdirectory(dir) == 0 then
+    vim.fn.mkdir(dir, 'p')
+  end
+end
+
+-- double slash // stores the files in a flat file instead of nested folders
+vim.opt.undodir = undo_dir .. '//'
+vim.opt.backupdir = backup_dir .. '//'
+vim.opt.directory = swap_dir .. '//'
+
 -- Save undo history
 vim.opt.undofile = true
+vim.opt.backup = true
+vim.opt.writebackup = true
+vim.opt.swapfile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
@@ -104,4 +125,32 @@ vim.diagnostic.config {
   underline = true,
   update_in_insert = false,
   severity_sort = false,
+}
+
+-- from kickstart
+vim.diagnostic.config {
+  severity_sort = true,
+  float = { border = 'rounded', source = 'if_many' },
+  underline = { severity = vim.diagnostic.severity.ERROR },
+  signs = vim.g.have_nerd_font and {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '󰅚 ',
+      [vim.diagnostic.severity.WARN] = '󰀪 ',
+      [vim.diagnostic.severity.INFO] = '󰋽 ',
+      [vim.diagnostic.severity.HINT] = '󰌶 ',
+    },
+  } or {},
+  virtual_text = {
+    source = 'if_many',
+    spacing = 2,
+    format = function(diagnostic)
+      local diagnostic_message = {
+        [vim.diagnostic.severity.ERROR] = diagnostic.message,
+        [vim.diagnostic.severity.WARN] = diagnostic.message,
+        [vim.diagnostic.severity.INFO] = diagnostic.message,
+        [vim.diagnostic.severity.HINT] = diagnostic.message,
+      }
+      return diagnostic_message[diagnostic.severity]
+    end,
+  },
 }

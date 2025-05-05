@@ -62,7 +62,7 @@ return {
           '--fixed-strings', -- stops ripgrep from using regexes
         },
       }
-    end, { desc = '[F]ind by [G]rep' })
+    end, { desc = '[F]ind by [S]earch Livegrep' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
     vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
     local recentFiles = function()
@@ -93,10 +93,15 @@ return {
       }
     end, { desc = '[F]ind [/] in Open Files' })
 
-    -- Shortcut for searching your Neovim configuration files
-    vim.keymap.set('n', '<leader>fn', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[F]ind [N]eovim files' })
+    local notes_path = vim.fn.expand '~/Workspace/notes'
+
+    vim.keymap.set('n', '<leader>fnf', function()
+      require('telescope.builtin').find_files { cwd = notes_path }
+    end, { desc = '[F]ind [N]otes [F]iles' })
+
+    vim.keymap.set('n', '<leader>fns', function()
+      require('telescope.builtin').live_grep { cwd = notes_path }
+    end, { desc = '[F]ind [N]otes [S]earch' })
 
     -- Open telescope when entering nvim
     local ts_group = vim.api.nvim_create_augroup('TelescopeOnEnter', { clear = true })

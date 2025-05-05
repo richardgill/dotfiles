@@ -24,6 +24,10 @@ hs.hotkey.bind(hyper, "f", function()
 	hs.application.launchOrFocus("Firefox")
 end)
 
+hs.hotkey.bind(hyper, "h", function()
+	hs.application.launchOrFocus("1Password")
+end)
+
 hs.hotkey.bind(hyper, "t", function()
 	hs.application.launchOrFocus("Todoist")
 end)
