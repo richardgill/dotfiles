@@ -4,7 +4,7 @@ return {
   config = function()
     require('render-markdown').setup {
       enabled = true,
-      file_types = { 'markdown', 'Avante' },
+      file_types = { 'markdown', 'codecompanion' },
     }
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'markdown',
@@ -18,5 +18,5 @@ return {
       end,
     })
   end,
-  ft = { 'markdown', 'Avante' },
+  ft = { 'markdown', 'codecompanion' },
 }
