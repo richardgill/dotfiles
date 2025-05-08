@@ -19,6 +19,23 @@ return {
           adapter = 'anthropic',
         },
       },
+      extensions = {
+        mcphub = {
+          callback = 'mcphub.extensions.codecompanion',
+          opts = {
+            show_result_in_chat = true,
+            make_vars = true, -- Convert resources to #variables
+            make_slash_commands = true, -- Add prompts as /slash commands
+          },
+        },
+      },
+      display = {
+        chat = {
+          window = {
+            width = 0.30,
+          },
+        },
+      },
     }
     vim.keymap.set('n', '<leader>aa', '<cmd>CodeCompanionChat<CR>', {
       desc = 'Chat',
