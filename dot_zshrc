@@ -68,13 +68,6 @@ select-word-style bash
 eval "$(zoxide init zsh --cmd cd)"
 source <(fzf --zsh)
 
-# Setup fnm (node version manager)
-eval "$(fnm env)"
-eval "$(fnm env --use-on-cd)"
-
-# Setup rye (python version manager)
-source "$HOME/.rye/env"
-
 # Git aliases
 alias s="git status"
 # git diff HEAD shows staged an unstaged changes
@@ -237,6 +230,5 @@ export PATH="$PATH:$HOME/.local/bin"
 
 export DVM_DIR="/Users/rich/.dvm"
 export PATH="$DVM_DIR/bin:$PATH"
-export PATH="/Users/rich/.config/maki/bin:$PATH"
 
 eval "$(mise activate zsh)"
