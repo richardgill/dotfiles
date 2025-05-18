@@ -1,25 +1,33 @@
 #!/bin/bash
+
 if [ "$#" -eq 0 ]; then
-  echo "Usage: source $0 path-to-directory"
-  return 1  # Use 'return' instead of 'exit' when the script is sourced
+  cato << EOF
+Usage examples:
+
+  wtb new-branch-and-dirname
+    # Creates a new branch with the given name
+
+  wtb new-branch-and-dirname local-branch
+    # Creates a new branch from another local branch
+
+  wtb new-branch-and-dirname origin/remote-branch
+    # Creates a new branch from a remote branch
+EOF
+  return 1
 fi
 
-# Check if the input includes a branch in the format 'remote/branch'
-if [[ "$1" =~ (.+)/(.+) ]]; then
-  REMOTE="${BASH_REMATCH[1]}"
-  BRANCH="${BASH_REMATCH[2]}"
-  echo "Fetching from $REMOTE branch $BRANCH"
-  git fetch "$REMOTE" "$BRANCH"
-  # Update the first argument ($1) to just the branch name for consistency in later use
-  set -- "$BRANCH" "${@:2}"
-fi
 
 SOURCE=$(realpath .)
 TARGET="$SOURCE/../$1"
 
-git worktree add $TARGET
+if [ -n "$2" ]; then
+  git worktree add "$TARGET" "$2"
+else
+  git worktree add "$TARGET"
+fi
 
 cd $TARGET
+
 if [ -n "$TMUX" ]; then
   tmux split-window -v -c '#{pane_current_path}'
 
@@ -34,22 +42,20 @@ fi
 echo "copying gitignored files"
 
 # Navigate to the original repo root
-(cd $SOURCE && git ls-files --others --ignored --exclude-standard) | while read filename; do
-  # Skip directories
-  if [ -d "$filename" ] || [[ "$filename" == *node_modules* ]]; then
-    continue
-  fi
-
+# Extracts the paths of all ignored files and directories from the git status output.
+(cd $SOURCE && git status --ignored -s | grep '^!! ' | awk '{print $2}') | while read filename; do
   echo "copying: $filename"
 
   # Create the directory structure in the new worktree if it doesn't exist
-  mkdir -p "$TARGET/$(dirname "$filename")"
+  # mkdir -p "$TARGET/$(dirname "$filename")"
   # Copy the ignored file using copy-on-write
-  cp -c "$SOURCE/$filename" "$TARGET/$filename"
+  cp -Rc "$SOURCE/$filename" "$TARGET/$filename"
 done
 
-pnpm i
+if [ -f "pnpm-lock.yaml" ]; then
+  pnpm i
+fi
 
 if [ -n "$TMUX" ]; then
-  nvim --server "$SOCKET_FILE" --remote-send ":LspRestart<CR>"
+  nvim --server "$SOCKET_FILE" --remote-expr "v:lua.require'utils'.restart_lsp()"
 fi
