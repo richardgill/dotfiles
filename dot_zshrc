@@ -75,10 +75,12 @@ alias d="git diff HEAD"
 alias hard="git reset --hard"
 alias co="git checkout"
 alias track="gh pr checkout"
+
+# Sourced because it needs to change directory
 alias wtb="source ~/Scripts/worktreeBranch"
-alias wto="source ~/Scripts/worktreeOpen"
-alias wtd="source ~/Scripts/worktreePurge"
-alias wtc="source ~/Scripts/worktreeClose"
+alias wto="~/Scripts/worktreeOpen"
+alias wtd="~/Scripts/worktreePurge"
+alias wtc="~/Scripts/worktreeClose"
 alias wtl="eza --sort=modified --reverse --time=modified --long --no-user --no-permissions"
 alias log="git log --graph --decorate --pretty=format:'%h - %an, %ar : %s'"
 alias soft="git reset --soft HEAD~1"
@@ -94,17 +96,6 @@ add() {
     git add .
   else
     git add "$@"
-  fi
-}
-
-ci() {
-  if [ "$#" -eq 0 ]; then
-    # No arguments provided, prompt for the commit message
-    git commit
-  else
-    # Arguments provided, they form the commit message
-    commit_message="$*"
-    git commit -m "$commit_message"
   fi
 }
 
@@ -210,7 +201,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Path
 export PATH="$PATH:$HOME/Scripts"
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 export PATH="$PATH:$HOME/Library/Android/sdk/build-tools/34.0.0"
 
