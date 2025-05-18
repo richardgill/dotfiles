@@ -154,3 +154,5 @@ vim.diagnostic.config {
     end,
   },
 }
+
+vim.g.node_host_prog = vim.fn.system('mise x -C ~/.config/nvim -- which node'):gsub('\n', '')
