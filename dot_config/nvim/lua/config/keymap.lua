@@ -68,8 +68,5 @@ vim.keymap.set('n', '<leader>wv', ':split<CR>', { noremap = true, silent = true,
 vim.keymap.set('n', '<leader>wb', ':enew<CR>', { noremap = true, silent = true, desc = '[w]indow new [b]uffer' })
 
 vim.keymap.set('n', '<leader>lr', function()
-  vim.cmd 'LspRestart'
-  vim.cmd 'VtsExec restart_tsserver'
-  -- For linting
-  vim.diagnostic.reset(nil, 0)
+  require('utils').restart_lsp()
 end, { desc = '[L]SP [R]estart' })

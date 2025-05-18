@@ -114,7 +114,12 @@ return {
             end, '[T]oggle Inlay [H]ints')
           end
           if client.name == 'vtsls' then
-            map('<leader>oi', '<cmd>:VtsExec remove_unused_imports<cr>', '[O]rganize [i]mports')
+            vim.keymap.set('n', '<leader>oi', function()
+              vim.cmd 'VtsExec remove_unused_imports'
+              vim.defer_fn(function()
+                require('conform').format { async = true }
+              end, 100)
+            end, { desc = '[O]rganize [I]mports' })
             map('<leader>crf', '<cmd>:VtsExec rename_file<cr>', '[C]ode [R]ename [F]ile')
           end
         end
@@ -147,6 +152,7 @@ return {
       -- pyright = {},
       eslint = {},
       ruff = {},
+      tailwindcss = {},
       ['jedi-language-server'] = {},
       ['kotlin_language_server'] = {},
       -- rust_analyzer = {},

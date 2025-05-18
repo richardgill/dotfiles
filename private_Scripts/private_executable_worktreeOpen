@@ -1,6 +1,5 @@
 #!/bin/bash
 if [ -n "$TMUX" ]; then
-alias wtb="source ~/Scripts/worktreeBranch"
   ORIGINAL_WINDOW=$(tmux display-message -p "#{window_id}")
   ORIGINAL_PANE=$(tmux display-message -p "#{pane_id}")
   
