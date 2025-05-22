@@ -15,14 +15,10 @@ export EDITOR='nvim'
 # EDITOR=vim sets zsh -o vim implicitly :|
 bindkey -e
 
-# setup zsh
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
-  autoload -Uz compinit
-  compinit
-fi
+autoload -Uz compinit
+compinit
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -73,8 +69,8 @@ alias s="git status"
 # git diff HEAD shows staged an unstaged changes
 alias d="git diff HEAD"
 alias hard="git reset --hard"
+alias soft="git reset --soft HEAD~1"
 alias co="git checkout"
-alias track="gh pr checkout"
 
 # Sourced because it needs to change directory
 alias wtb="source ~/Scripts/worktreeBranch"
@@ -83,7 +79,6 @@ alias wtd="~/Scripts/worktreePurge"
 alias wtc="~/Scripts/worktreeClose"
 alias wtl="eza --sort=modified --reverse --time=modified --long --no-user --no-permissions"
 alias log="git log --graph --decorate --pretty=format:'%h - %an, %ar : %s'"
-alias soft="git reset --soft HEAD~1"
 alias ghdiff='open "$(gh browse --no-browser)/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"'
 alias bbdiff='open "$(git config remote.origin.url)/pull-requests/new#diff"'
 alias pr="ghdiff"
@@ -192,20 +187,10 @@ export PUPPETEER_EXECUTABLE_PATH=`which chromium`
 
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/.ripgreprc"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# bun completions
-[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
-
 # Path
 export PATH="$PATH:$HOME/Scripts"
 export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools"
 export PATH="$PATH:$HOME/Library/Android/sdk/build-tools/34.0.0"
-
-export PATH="~/.bun/bin:$PATH"
-export PATH="$HOME/.deno/bin:$PATH"
 
 # Android
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -218,7 +203,11 @@ export PATH="$HOME/.mozbuild/git-cinnabar:$PATH"
 
 export PATH="$PATH:$HOME/.local/bin"
 
-export DVM_DIR="/Users/rich/.dvm"
-export PATH="$DVM_DIR/bin:$PATH"
 
 eval "$(mise activate zsh)"
+
+# globally installed npm packages with versions
+alias twls="npx --yes tailwindcss-language-server@0.14.18"
+alias vtsls="npx --yes @vtsls/language-server@0.2.8"
+alias prettierd="npx --yes @fsouza/prettierd@0.26.1"
+alias claude="npx --yes @anthropic-ai/claude-code@latest"
