@@ -72,7 +72,6 @@ menu:setMenu({
 menu:setTitle("🔓")
 
 local function shouldMaximizeWindow(win)
-	print("zzz", win, win:isStandard(), win:isMaximizable(), win:subrole())
 	return win and win:isStandard() and win:isMaximizable() and win:subrole() ~= "AXSystemDialog"
 end
 
@@ -106,7 +105,6 @@ screenWatcher:start()
 -- This cannot be local because the watcher gets garbage collected
 watcher = hs.caffeinate.watcher.new(function(event)
 	print(
-		"zzz Caffeinate event:",
 		event,
 		hs.caffeinate.watcher.screensaverDidStop,
 		hs.caffeinate.watcher.systemDidWake,
@@ -117,7 +115,6 @@ watcher = hs.caffeinate.watcher.new(function(event)
 		or event == hs.caffeinate.watcher.systemDidWake
 		or event == hs.caffeinate.watcher.screensDidUnlock
 	then
-		print("zzz unlocked")
 		hs.execute("/Users/rich/Scripts/coldTurkeyOn", true)
 	end
 end)

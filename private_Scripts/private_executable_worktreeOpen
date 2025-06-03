@@ -1,15 +1,5 @@
 #!/bin/bash
-if [ -n "$TMUX" ]; then
-  ORIGINAL_WINDOW=$(tmux display-message -p "#{window_id}")
-  ORIGINAL_PANE=$(tmux display-message -p "#{pane_id}")
-  
-  tmux split-window -v -c '#{pane_current_path}'
 
-  tmux new-window -a -c "#{pane_current_path}"
+source "$(dirname "$0")/tmuxSetupWindows"
 
-  tmux send-keys "v ." Enter
-  
-  tmux select-window -t "$ORIGINAL_WINDOW"
-  tmux select-pane -t "$ORIGINAL_PANE"
-fi
-
+setup_tmux_windows

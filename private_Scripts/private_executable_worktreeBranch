@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$(dirname "$0")/tmuxSetupWindows"
+
 if [ "$#" -eq 0 ]; then
   cato << EOF
 Usage examples:
@@ -9,6 +11,9 @@ Usage examples:
 
   wtb new-branch-and-dirname local-branch
     # Creates a new branch from another local branch
+
+  wtb feature-branch origin/feature-branch
+    # Creates a worktree from a remote branch with the same name
 
   wtb new-branch-and-dirname origin/remote-branch
     # Creates a new branch from a remote branch
@@ -21,41 +26,20 @@ SOURCE=$(realpath .)
 TARGET="$SOURCE/../$1"
 
 if [ -n "$2" ]; then
+  if [[ "$2" == */* ]]; then
+    REMOTE=$(echo "$2" | cut -d'/' -f1)
+    BRANCH=$(echo "$2" | cut -d'/' -f2-)
+    echo "Fetching remote branch $2..."
+    git fetch "$REMOTE" "$BRANCH"
+  fi
   git worktree add "$TARGET" "$2"
 else
   git worktree add "$TARGET"
 fi
 
-cd $TARGET
 
-if [ -n "$TMUX" ]; then
-  tmux split-window -v -c '#{pane_current_path}'
-
-  tmux new-window -a -c "#{pane_current_path}"
-
-  SOCKET_FILE="/tmp/nvim-socket-$(uuidgen)"
-
-  tmux send-keys "v . --listen $SOCKET_FILE" Enter
-fi
+TMUX_SESSION=$(create_worktree_session $(realpath "$TARGET"))
+SOCKET_FILE=$(setup_tmux_windows "$TMUX_SESSION")
 
 
-echo "copying gitignored files"
-
-# Navigate to the original repo root
-# Extracts the paths of all ignored files and directories from the git status output.
-(cd $SOURCE && git status --ignored -s | grep '^!! ' | awk '{print $2}') | while read filename; do
-  echo "copying: $filename"
-
-  # Create the directory structure in the new worktree if it doesn't exist
-  # mkdir -p "$TARGET/$(dirname "$filename")"
-  # Copy the ignored file using copy-on-write
-  cp -Rc "$SOURCE/$filename" "$TARGET/$filename"
-done
-
-if [ -f "pnpm-lock.yaml" ]; then
-  pnpm i
-fi
-
-if [ -n "$TMUX" ]; then
-  nvim --server "$SOCKET_FILE" --remote-expr "v:lua.require'utils'.restart_lsp()"
-fi
+tmux send-keys -t "${TMUX_SESSION}:long" "$(dirname "$0")/worktreeBranchSetup \"$SOURCE\" \"$TARGET\" \"$SOCKET_FILE\"" Enter

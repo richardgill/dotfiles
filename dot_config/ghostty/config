@@ -9,12 +9,8 @@ macos-option-as-alt = true
 title = ""
 macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
-command = /bin/zsh -l -c "source ~/.zshrc; tmux new; zsh"
+command = /bin/zsh -l -c "source ~/.zshrc; tmux attach -t ghostee || tmux new -s root"
 window-padding-y = 10,0 
 resize-overlay = never
-# should be default soon https://github.com/ghostty-org/ghostty/pull/3679
-keybind = cmd+backspace=text:\x15
-keybind = cmd+left=text:\x1bOH
-keybind = cmd+right=text:\x1bOF
 # more bindings https://github.com/alacritty/alacritty/issues/474#issuecomment-338803299
 

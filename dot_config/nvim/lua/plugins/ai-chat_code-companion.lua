@@ -72,10 +72,6 @@ return {
             - Use actual line breaks instead of '\n' in your response to begin new lines.
             - Use '\n' only when you want a literal backslash followed by a character 'n'.
             - All non-code responses must be in %s.
-            - Do not add comments to code blocks unless it's a truly exceptional case. 
-            - When writing TypeScript / JavaScript:
-              - Always use `const myFunc = () => ...` in typescript. 
-              - Use `export const` and only use `export default` if it's needed by a library or framework
 
             When given a task:
             1. Think step-by-step and describe your plan for what to build in pseudocode, written out in great detail, unless asked not to do so.
