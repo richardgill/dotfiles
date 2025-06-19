@@ -1,0 +1,15 @@
+[tools]
+bat = "0.25.0"
+bun = "1.2.13"
+chezmoi = "2.62.5"
+delta = "0.18.2"
+deno = "2.3.3"
+fzf = "0.62.0"
+gh = "2.74.0"
+neovim = ['0.11.1']
+node = ['23']
+ripgrep = "14.1.1"
+yazi = "25.5.31"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]

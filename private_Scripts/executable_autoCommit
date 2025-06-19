@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Exit on any error
+set -e
+
+echo "$ git add ."
+git add .
+
+if [ -z "$(git status --porcelain)" ]; then
+    echo "Nothing to commit, working tree clean"
+    exit 0
+fi
+
+echo -e "\nGenerating commit message with Claude..."
+COMMIT_MSG=$(claude --model sonnet -p "Generate a succinct commit message for these changes. Look at the git diff and status to understand what changed. Output ONLY the commit message, no explanation:" <<EOF
+$(git status --porcelain)
+$(git diff --cached)
+EOF
+)
+
+git commit -m "$COMMIT_MSG"
+

@@ -4,8 +4,9 @@ hs.window.animationDuration = 0 -- Disable animations globally
 local hyper = { "cmd", "alt", "ctrl", "shift" }
 
 -- Application bindings
-hs.hotkey.bind(hyper, "m", function()
-	hs.application.launchOrFocus("Spotify")
+
+hs.hotkey.bind(hyper, "a", function()
+	hs.application.launchOrFocus("Android Studio")
 end)
 
 hs.hotkey.bind(hyper, "c", function()
@@ -16,16 +17,20 @@ hs.hotkey.bind(hyper, "d", function()
 	hs.application.launchOrFocus("Discord")
 end)
 
-hs.hotkey.bind(hyper, "g", function()
-	hs.application.launchOrFocus("Ghostty")
-end)
-
 hs.hotkey.bind(hyper, "f", function()
 	hs.application.launchOrFocus("Firefox")
 end)
 
+hs.hotkey.bind(hyper, "g", function()
+	hs.application.launchOrFocus("Ghostty")
+end)
+
 hs.hotkey.bind(hyper, "h", function()
 	hs.application.launchOrFocus("1Password")
+end)
+
+hs.hotkey.bind(hyper, "m", function()
+	hs.application.launchOrFocus("Spotify")
 end)
 
 hs.hotkey.bind(hyper, "t", function()

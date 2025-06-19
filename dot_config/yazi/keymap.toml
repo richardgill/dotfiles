@@ -10,5 +10,7 @@ prepend_keymap = [
 	{ on = ["f", "f"], run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
 	{ on = ["f", "s"], run = "plugin fr rg", desc = "Search file by content (rg)" },
 	{ on = ["f", "a"], run = "plugin fr rga", desc = "Search file by content (rga)" },
+
+	{on = [ "c", "r" ], run = "plugin path-from-root", desc = "Copies path from git root"},
 ]
 
