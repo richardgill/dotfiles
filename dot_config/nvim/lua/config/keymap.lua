@@ -1,5 +1,6 @@
 -- This is needed to allow using space as the leader whist in visual mode.
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+
 -- Stop replace mode in visual mode. This is a workaround for some visual leader issues.
 vim.api.nvim_set_keymap('v', 'r', '<Nop>', { noremap = true, silent = true })
 
@@ -70,3 +71,19 @@ vim.keymap.set('n', '<leader>wb', ':enew<CR>', { noremap = true, silent = true, 
 vim.keymap.set('n', '<leader>lr', function()
   require('utils').restart_lsp()
 end, { desc = '[L]SP [R]estart' })
+
+local function yank_path(format, label)
+  local path = vim.fn.expand(format)
+  vim.fn.setreg('+', path) -- Copy to system clipboard
+  print('Yanked ' .. label .. ' path: ' .. path)
+end
+
+-- <leader>ca yanks the absolute path of the current buffer
+vim.keymap.set('n', '<leader>ya', function()
+  yank_path('%:p', 'absolute') -- %:p gives absolute file path
+end, { desc = '[Y]ank [A]bsolute path to clipboard' })
+
+-- <leader>cr yanks the path relative to where Neovim was started
+vim.keymap.set('n', '<leader>yr', function()
+  yank_path('%', 'relative') -- % gives path relative to :pwd
+end, { desc = '[Y]ank [R]elative path to clipboard' })

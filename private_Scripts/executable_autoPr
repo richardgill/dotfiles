@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Exit on any error
+set -e
+
+# Check for existing PR
+echo "Checking for existing pull request..."
+CURRENT_BRANCH=$(git branch --show-current)
+PR_EXISTS=$(gh pr list --head "$CURRENT_BRANCH" --json number --jq length)
+
+if [ "$PR_EXISTS" -eq 0 ]; then
+    echo "No existing PR found. Creating draft pull request..."
+    
+    # Generate PR title and description using Claude
+    PR_CONTENT=$(claude --model sonnet -p "Generate a minimal pull request title and description for these changes. The title should be on the first line, followed by a blank line, then the description. Keep it concise:" <<EOF
+Branch: $CURRENT_BRANCH
+Changes:
+$(git log origin/main..HEAD --oneline)
+
+Diff:
+$(git diff origin/main...HEAD)
+EOF
+)
+    
+    # Extract title (first line) and description (rest)
+    PR_TITLE=$(echo "$PR_CONTENT" | head -n1)
+    PR_BODY=$(echo "$PR_CONTENT" | tail -n +3)
+    
+    # Create draft PR
+    PR_URL=$(gh pr create --draft --title "$PR_TITLE" --body "$PR_BODY")
+    echo "Draft pull request created: $PR_URL"
+    
+    # Open in browser
+    gh pr view --web
+else
+    echo "Pull request already exists for branch '$CURRENT_BRANCH'"
+    gh pr view --web
+fi

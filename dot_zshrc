@@ -86,7 +86,12 @@ alias wtl="eza --sort=modified --reverse --time=modified --long --no-user --no-p
 alias log="git log --graph --decorate --pretty=format:'%h - %an, %ar : %s'"
 alias ghdiff='open "$(gh browse --no-browser)/compare/$(git rev-parse --abbrev-ref HEAD)?expand=1"'
 alias bbdiff='open "$(git config remote.origin.url)/pull-requests/new#diff"'
-alias pr="ghdiff"
+alias autoCommit="~/Scripts/autoCommit"
+alias autoPr="~/Scripts/autoPr"
+alias autoCommitPr="~/Scripts/autoCommitPr"
+alias ci='autoCommit'
+alias pr='autoPr'
+alias cipr='autoCommitPr'
 alias pull="source ~/Scripts/gitPull"
 alias push="source ~/Scripts/gitPush"
 alias fetch="source ~/Scripts/gitFetch"
@@ -119,14 +124,16 @@ alias v="nvim"
 alias zed="open -a /Applications/Zed.app -n"
 alias pnx="pnpm exec nx"
 alias lso="/bin/ls"
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --all"
 alias tree="ls --tree"
 alias cato="/bin/cat"
-alias cat="bat"
 alias as="open -a \"Android Studio\""
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 alias sed="gsed"
 alias y='yazi'
+if [[ -z "$IS_CLAUDE" ]]; then
+  alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --all"
+  alias cat="bat"
+fi
 
 # -- Use fd instead of fzf --
 
@@ -215,5 +222,6 @@ export PATH="$HOME/.config/xata/bin:$PATH"
 alias twls="npx --yes tailwindcss-language-server@0.14.18"
 alias vtsls="npx --yes @vtsls/language-server@0.2.8"
 alias prettierd="npx --yes @fsouza/prettierd@0.26.1"
-alias claude="npx --yes @anthropic-ai/claude-code@latest"
+alias claude="npx --yes @anthropic-ai/claude-code@1.0.27"
+alias cl="claude"
 alias codex="npx --yes @openai/codex@latest"

@@ -150,6 +150,7 @@ return {
       -- clangd = {},
       -- gopls = {},
       -- pyright = {},
+      astro = {},
       eslint = {},
       ruff = {},
       tailwindcss = {},

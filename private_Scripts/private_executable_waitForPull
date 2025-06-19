@@ -5,7 +5,7 @@ BRANCH=${1:-main}
 PREV_STATE=$(git rev-parse HEAD)
 
 while true; do
-    git pull origin $BRANCH
+    git pull origin $BRANCH --ff
 
     CUR_STATE=$(git rev-parse HEAD)
 

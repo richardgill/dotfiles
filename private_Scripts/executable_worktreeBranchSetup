@@ -7,8 +7,12 @@ SOCKET_FILE="$3"
 echo "copying gitignored files"
 
 (cd "$SOURCE" && git status --ignored -s | grep '^!! ' | awk '{print $2}') | while read filename; do
-  echo "copying: $filename"
-  cp -Rc "$SOURCE/$filename" "$TARGET/$filename"
+  if [[ "$filename" != *"node_modules"* ]]; then
+    echo "copying: $filename"
+    cp -Rc "$SOURCE/$filename" "$TARGET/$filename"
+  else
+    echo "skipping: $filename (node_modules)"
+  fi
 done
 
 if [ -f "$SOURCE/pnpm-lock.yaml" ]; then
