@@ -4,16 +4,16 @@ You need to write instructions for a separate claude code instance can execute w
 
 Here are sections I'd like you to include with line limits. I prefer concise plans with just critical information.
 
-# Relevant Context (max 15 lines)
+# Relevant Context (max 7 lines)
 
 Everything useful you found during planning.
 
 - Files directories to read that contained useful context. This doesn't include anything that didn't have useful context.
 - Specific urls you read that had useful context so that the other agent can read them directly.
 
-# High level summary of the plan (max 35 lines)
+# High level summary of the plan (max 10 lines)
 
-# Plan (max 30 lines)
+# Plan (max 15 lines)
 
 <a detailed todo list of the steps you need to take to get the task done>
 

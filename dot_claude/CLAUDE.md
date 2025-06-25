@@ -1,3 +1,5 @@
+When you add debugging logging always prefix the logs with 'zzz' so we can easily grep for the logs
+
 When adding / modifying code in my code base do NOT add comments unless it's a truly exceptional case. 
 When writing TypeScript / JavaScript:
   - Always use `const myFunc = () => ...` in typescript. 
@@ -20,3 +22,9 @@ Prefer to use ripgrep `rg` over `find`
 When using git always prefer `--ff` where possible
 
 I work on Mac and the filesystem is case sensitive
+
+Only do git commits when I explicitly ask.
+
+Always use context7 mcp tools to look up library docs
+
+Prefer not to use npx or bunx for anything where package.json has it. Rely on pnpm exec

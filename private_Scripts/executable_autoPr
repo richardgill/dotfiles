@@ -12,7 +12,7 @@ if [ "$PR_EXISTS" -eq 0 ]; then
     echo "No existing PR found. Creating draft pull request..."
     
     # Generate PR title and description using Claude
-    PR_CONTENT=$(claude --model sonnet -p "Generate a minimal pull request title and description for these changes. The title should be on the first line, followed by a blank line, then the description. Keep it concise:" <<EOF
+    PR_CONTENT=$(claude --model claude-3-5-haiku-20241022 -p "Generate a minimal pull request title and description for these changes. The title should be on the first line, followed by a blank line, then the description. Keep it concise:" <<EOF
 Branch: $CURRENT_BRANCH
 Changes:
 $(git log origin/main..HEAD --oneline)

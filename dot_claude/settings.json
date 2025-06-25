@@ -31,6 +31,7 @@
       "Bash(cd:*)",
       "Bash(mkdir:*)",
       "Bash(cp:*)",
+      "Bash(diff:*)",
       "Bash(mv:*)",
       "Bash(sed:*)",
       "Bash(awk:*)",
@@ -44,6 +45,7 @@
       "Bash(pwd)",
       "Bash(echo:*)",
       "Bash(printf:*)",
+      "Bash(open:*)",
       "Glob",
       "Grep",
       "LS",
@@ -60,6 +62,8 @@
       "mcp__sse-server__puppeteer-puppeteer_evaluate",
       "mcp__sse-server__tavily-tavily-search",
       "mcp__sse-server__tavily-tavily-extract",
+      "mcp__context7__get-library-docs",
+      "mcp__context7__resolve-library-id",
       "Bash(rm:*)"
     ],
     "deny": [
@@ -75,5 +79,6 @@
       "Write(/sbin/:*)"
     ]
   },
-  "theme": "dark"
+  "theme": "dark",
+  "model": "opus"
 }

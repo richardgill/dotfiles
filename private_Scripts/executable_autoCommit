@@ -12,11 +12,9 @@ if [ -z "$(git status --porcelain)" ]; then
 fi
 
 echo -e "\nGenerating commit message with Claude..."
-COMMIT_MSG=$(claude --model sonnet -p "Generate a succinct commit message for these changes. Look at the git diff and status to understand what changed. Output ONLY the commit message, no explanation:" <<EOF
-$(git status --porcelain)
-$(git diff --cached)
-EOF
-)
+COMMIT_MSG=$(claude --model claude-3-5-haiku-20241022 -p "Generate a succinct commit message for these changes. Look at the git diff and status to understand what changed. Output ONLY the commit message, no explanation: $(git status --porcelain) $(git diff --cached)")
+
+echo -e "\nCommit message generated: $COMMIT_MSG"
 
 git commit -m "$COMMIT_MSG"
 
