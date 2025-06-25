@@ -21,16 +21,19 @@ setup_tmux_windows() {
     
     tmux rename-window -t "$ORIGINAL_WINDOW" "nvim"
 
+    SOCKET_FILE="/tmp/nvim-socket-$(uuidgen)"
+    tmux send-keys -t "$ORIGINAL_PANE" "v . --listen $SOCKET_FILE" Enter
+
     tmux new-window -t "$session_name" -a -c "$ORIGINAL_PATH" -n "short"
     tmux new-window -t "$session_name" -a -c "$ORIGINAL_PATH" -n "long"
-    AI_WINDOW=$(tmux new-window -t "$session_name" -a -c "$ORIGINAL_PATH" -n "ai" -P -F "#{window_id}")
 
-    SOCKET_FILE="/tmp/nvim-socket-$(uuidgen)"
+    AI_WINDOW_1=$(tmux new-window -t "$session_name" -a -c "$ORIGINAL_PATH" -n "ai1" -P -F "#{window_id}")
+    tmux send-keys -t "$AI_WINDOW_1" "cl" Enter
+    
+    AI_WINDOW_2=$(tmux new-window -t "$session_name" -a -c "$ORIGINAL_PATH" -n "ai2" -P -F "#{window_id}")
+    tmux send-keys -t "$AI_WINDOW_2" "cl" Enter
 
-    tmux send-keys -t "$AI_WINDOW" "claude" Enter
-
-    tmux select-window -t "$ORIGINAL_WINDOW"
-    tmux send-keys -t "$ORIGINAL_PANE" "v . --listen $SOCKET_FILE" Enter
+    tmux select-window -t "$AI_WINDOW_1"
     
     echo "$SOCKET_FILE"
   fi
