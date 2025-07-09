@@ -28,3 +28,7 @@ Only do git commits when I explicitly ask.
 Always use context7 mcp tools to look up library docs
 
 Prefer not to use npx or bunx for anything where package.json has it. Rely on pnpm exec
+
+Avoid `continue` and `break` keywords
+
+Avoid `switch` statements
