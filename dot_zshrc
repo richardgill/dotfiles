@@ -225,6 +225,6 @@ alias vtsls="npx --yes @vtsls/language-server@0.2.8"
 alias prettierd="npx --yes @fsouza/prettierd@0.26.1"
 
 alias claudet="npx -y @mariozechner/claude-trace@latest"
-alias cl="claudet"
+alias cl="npx --yes @anthropic-ai/claude-code@1.0.38"
 alias codex="npx --yes @openai/codex@latest"
 alias vercel="npx --yes vercel@latest"

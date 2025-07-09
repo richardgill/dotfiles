@@ -34,6 +34,7 @@
       "Bash(diff:*)",
       "Bash(mv:*)",
       "Bash(sed:*)",
+      "Bash(cut:*)",
       "Bash(awk:*)",
       "Bash(sort:*)",
       "Bash(uniq:*)",
@@ -79,6 +80,18 @@
       "Write(/sbin/:*)"
     ]
   },
-  "theme": "dark",
-  "model": "opus"
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
+    ]
+  },
+  "theme": "dark"
 }

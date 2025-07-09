@@ -18,7 +18,7 @@ hs.hotkey.bind(hyper, "d", function()
 end)
 
 hs.hotkey.bind(hyper, "f", function()
-	hs.application.launchOrFocus("Firefox")
+	hs.application.launchOrFocus("Zen")
 end)
 
 hs.hotkey.bind(hyper, "g", function()
